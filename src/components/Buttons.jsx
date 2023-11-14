@@ -6,20 +6,14 @@ import satData from "./satData.jsx";
 
 const Buttons = ({ filterByType, setSat, displaySats }) => {
   return (
-    <div>
-      <button>Placeholder Button</button>
-      <button>All Orbits</button>
+    <div className='flex-container'>
+      {displaySats.map((sat, id) => {
+        return (
+          <button onClick={() => filterByType(sat)} key={id} name={sat}>
+            {sat} Orbit
+          </button>); })}
+      <button onClick={() => setSat(satData)} name="allOrbits">All Orbits</button>
     </div>
-
-    // <div className='flex-container'>
-    //   {displaySats.map((sat, id) => {
-    //     return (
-    //       <button onClick={() => filterByType(sat)} key={id}>
-    //         {sat} Orbit
-    //       </button>); })}
-    //   <button onClick={() => filterByType(setSat)} key={id}>
-    //         {setSat} Orbit</button>
-    // </div>
   );
 };
 
